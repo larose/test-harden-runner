@@ -1,0 +1,32 @@
+name: Step Security
+
+on:
+  push:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  block:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+        with:
+          egress-policy: block
+
+      - name: Check existing ruleset
+        run: |
+          sudo nft list ruleset
+
+          echo "###"
+
+          ip address
+
+          echo "###"
+
+          sudo iptables -L
