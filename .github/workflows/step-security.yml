@@ -27,3 +27,7 @@ jobs:
           echo "###"
 
           sudo iptables -L
+
+      - name: dig
+        run: |
+          dig www.google.com
