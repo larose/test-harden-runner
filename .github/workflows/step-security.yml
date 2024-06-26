@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
         with:
+          disable-telemetry: true
           egress-policy: block
 
       - name: Check existing ruleset
@@ -30,6 +31,6 @@ jobs:
 
       - name: dig
         run: |
-          dig www.google.com
+          dig mathieularose.com
 
-          curl https://www.google.com
+          curl https://mathieularose.com
