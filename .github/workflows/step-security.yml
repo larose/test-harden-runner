@@ -31,3 +31,5 @@ jobs:
       - name: dig
         run: |
           dig www.google.com
+
+          curl https://www.google.com
